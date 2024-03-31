@@ -1,5 +1,5 @@
 const FamilyMemberTabs = () => {
-  return <div>FamilyMemberTabs</div>;
+  return <div className="bg-blue-300">FamilyMemberTabs</div>;
 };
 
 export default FamilyMemberTabs;

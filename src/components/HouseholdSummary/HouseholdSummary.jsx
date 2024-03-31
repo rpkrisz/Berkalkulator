@@ -1,5 +1,5 @@
 const HouseholdSummary = () => {
-  return <div>HouseholdSummary</div>;
+  return <div className="bg-yellow-300">HouseholdSummary</div>;
 };
 
 export default HouseholdSummary;
