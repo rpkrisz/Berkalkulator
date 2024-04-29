@@ -1,7 +1,7 @@
 import AllowanceToggel from "./AllowanceToggel.jsx";
 function Allowances() {
   return (
-    <div>
+    <div className="flex flex-col justify-start">
       <h1>KEDVEZMÉNYEK</h1>
       <AllowanceToggel label="25 év"></AllowanceToggel>
       <AllowanceToggel label="Friss"></AllowanceToggel>
