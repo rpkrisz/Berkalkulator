@@ -7,13 +7,13 @@ const HouseholdSalaryCalculator = () => {
   const [brutto, setBrutto] = useState(0);
   const [netto, setNetto] = useState(0);
   const [name, setName] = useState("");
-
+  
   return (
     <>
       <header>
         <FamilyMemberTabs />
       </header>
-      <main className="flex flex-row justify-start">
+      <main className="flex flex-row justify-center w-full">
         <SalaryCalculator brutto={brutto} name={name} netto={netto} setterB={setBrutto} setterN={setName} setterNet={setNetto} />
         <HouseholdSummary netto={netto} name={name} />
       </main>
