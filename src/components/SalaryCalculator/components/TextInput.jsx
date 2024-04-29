@@ -1,14 +1,17 @@
 /**
  *
- * @param { title: string, label:string} params
+ * @param {{title: string, label:string,value:string setter:Function}} params
  * @returns
  */
-function TextInput({ title, label }) {
+function TextInput({ title, label, value, setter }) {
+  function handelChange(e) {
+    setter(e.target.value);
+  }
   return (
-    <div>
+    <div className="flex flex-col justify-start">
       <h1>{title}</h1>
-      <input type="text" name="input" />
-      <label htmlFor="">Add meg a {label}</label>
+      <input onChange={handelChange} type="text" name="input" value={value ? value : ""} />
+      <label htmlFor="">Add meg a {label}!</label>
     </div>
   );
 }
