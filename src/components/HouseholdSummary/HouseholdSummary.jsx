@@ -1,7 +1,7 @@
 const HouseholdSummary = ({ netto, name }) => {
   return (
     <div className="bg-yellow-300">
-      <h1>HouseholdSummary</h1>
+      <h1>Háztartás összesített jövedelme</h1>
       <table>
         <thead>
           <tr>
