@@ -1,12 +1,12 @@
 import ChangeButton from "./ChangeButton";
 
-function Buttons({ nums }) {
+function Buttons({ brutto, setter }) {
   return (
     <>
-      <ChangeButton value="-5"></ChangeButton>
-      <ChangeButton value="-1"></ChangeButton>
-      <ChangeButton value="+1"></ChangeButton>
-      <ChangeButton value="+5"></ChangeButton>
+      <ChangeButton brutto={brutto} setter={setter} value="-5"></ChangeButton>
+      <ChangeButton brutto={brutto} setter={setter} value="-1"></ChangeButton>
+      <ChangeButton brutto={brutto} setter={setter} value="+1"></ChangeButton>
+      <ChangeButton brutto={brutto} setter={setter} value="+5"></ChangeButton>
     </>
   );
 }
