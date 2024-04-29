@@ -1,6 +1,6 @@
-function ChangeButton({ value }) {
+function ChangeButton({ brutto, setter, value }) {
   function handelClick() {
-    console.log(value);
+    setter(Number(brutto) + (Number(brutto) * Number(value)) / 100);
   }
   return (
     <>
