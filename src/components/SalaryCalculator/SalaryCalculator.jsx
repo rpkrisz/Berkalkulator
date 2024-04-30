@@ -4,6 +4,7 @@ import Allowances from "./components/Allowances";
 import RngeSlider from "./components/RngeSlider";
 import Formatted from "../Formatted";
 import { useState, useEffect } from "react";
+import { Button } from "@chakra-ui/react";
 
 function calculateNetto(brutto, allowances, peoples) {
   brutto = Number(brutto);
@@ -50,7 +51,7 @@ function calculateNetto(brutto, allowances, peoples) {
 
 /**
  *
- * @param {{member:Object, setMember:Function}} param
+ * @param {{members:Array, setMembers:Function, index:Number}} param
  * @returns
  */
 const SalaryCalculator = ({ members, setMembers, index }) => {
@@ -58,6 +59,12 @@ const SalaryCalculator = ({ members, setMembers, index }) => {
   const { name, brutto, netto } = member;
   const [allowances, setAllowances] = useState([false, false, false, false, false]);
   const [peoples, setPeoples] = useState({ dependant: 0, beneficiary: 0 });
+
+  function handelDelete() {
+    if (members.length === 1) return;
+    const filtered = members.filter((memb) => memb !== member);
+    setMembers(filtered);
+  }
 
   // update netto when change happens
   useEffect(() => {
@@ -73,6 +80,8 @@ const SalaryCalculator = ({ members, setMembers, index }) => {
 
   return (
     <div className="bg-red-300">
+      {members.length !== 1 ? <Button onClick={handelDelete}>DEL</Button> : <></>}
+
       <TextInput title="Családtag neve" label="családtag nevét" member={member} value={name} setter={setMember} name="name"></TextInput>
       <TextInput title="Bruttó bér" label="bruttó bérét" member={member} value={brutto} setter={setMember} name="brutto"></TextInput>
       <RngeSlider member={member} setter={setMember}></RngeSlider>
