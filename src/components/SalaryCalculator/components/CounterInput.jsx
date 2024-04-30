@@ -20,9 +20,9 @@ export default function CounterInput({ peoples, setPeoples, type }) {
     setPeoples({ ...peoples, [type]: peoples[type] + 1 });
   }
   return (
-    <div className="flex align-middle">
+    <div className="flex align-middle gap-2">
       <Button onClick={handelLeftClick}>-</Button>
-      <Input type="number" value={peoples[type]} disabled />
+      <Input type="number" value={peoples[type]} disabled padding={2} width={30}/>
       <Button onClick={handelRightClick}>+</Button>
     </div>
   );
