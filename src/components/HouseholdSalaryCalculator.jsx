@@ -1,16 +1,20 @@
 import { useState } from "react";
 import FamilyMemberTabs from "./FamilyMemberTabs/FamilyMemberTabs";
-import HouseholdSummary from "./HouseholdSummary/HouseholdSummary";
 
 const HouseholdSalaryCalculator = () => {
   const [members, setMembers] = useState([{ name: "", brutto: 0, netto: 0 }]);
 
   return (
     <>
-      <main className="flex flex-row justify-center w-full">
+      <header className="bg-sky-200 w-full h-fit p-2">
+        <h1 className="text-2xl font-bold">Bérkalkulátor</h1>
+      </header>
+      <main className="flex flex-row justify-center w-full h-[90dvh] p-6">
         <FamilyMemberTabs members={members} setMembers={setMembers} />
-        <HouseholdSummary members={members} />
       </main>
+      <footer className="bg-sky-300 flex justify-center h-auto">
+        <p>© 2024 Réthey-Prikkel Kriszsztián - Elte IK Progremtervező informatika - Kliensoldali webprogramozás beadandó</p>
+      </footer>
     </>
   );
 };

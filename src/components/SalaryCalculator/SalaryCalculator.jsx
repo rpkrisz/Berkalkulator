@@ -79,18 +79,26 @@ const SalaryCalculator = ({ members, setMembers, index }) => {
   }, [member]);
 
   return (
-    <div className="bg-red-300">
-      {members.length !== 1 ? <Button onClick={handelDelete}>DEL</Button> : <></>}
+    <div className="bg-blue-100 flex justify-start flex-col p-6 rounded-md relative">
+      {members.length !== 1 ? (
+        <Button onClick={handelDelete} className="self-end  w-16">
+          DELTE
+        </Button>
+      ) : (
+        <></>
+      )}
 
       <TextInput title="Családtag neve" label="családtag nevét" member={member} value={name} setter={setMember} name="name"></TextInput>
       <TextInput title="Bruttó bér" label="bruttó bérét" member={member} value={brutto} setter={setMember} name="brutto"></TextInput>
       <RngeSlider member={member} setter={setMember}></RngeSlider>
       <Buttons member={member} setter={setMember}></Buttons>
       <Allowances allowances={allowances} setter={setAllowances} peoples={peoples} setPeoples={setPeoples}></Allowances>
-      <p>Számított nettó bér:</p>
-      <p>
-        <Formatted number={netto} />
-      </p>
+      <div className="flex flex-col self-center ">
+        <p className="text-lg">Számított nettó bér:</p>
+        <p className="text-center rounded-lg bg-sky-800 p-3 m-2 text-white">
+          <Formatted number={netto} />
+        </p>
+      </div>
     </div>
   );
 };

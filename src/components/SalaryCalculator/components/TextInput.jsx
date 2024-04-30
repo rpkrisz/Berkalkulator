@@ -18,7 +18,7 @@ function TextInput({ title, label, value, member, setter, name }) {
     <div className="flex flex-col justify-start">
       <h1>{title}</h1>
       <Input onChange={handelChange} type="text" name={name} value={value ? value : ""} variant="filled" placeholder={title} />
-      <label htmlFor="">Add meg a {label}!</label>
+      <label className="font-extralight text-sm" htmlFor="">Add meg a {label}!</label>
     </div>
   );
 }

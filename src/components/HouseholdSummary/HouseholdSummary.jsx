@@ -10,10 +10,10 @@ const HouseholdSummary = ({ members }) => {
     sum += member.netto;
   });
   return (
-    <div className="bg-yellow-300">
-      <h1>Háztartás összesített jövedelme</h1>
-      <table>
-        <thead>
+    <div className="bg-blue-100 flex justify-start flex-col p-6 rounded-md">
+      <h1 className="text-xl p-1 m-2 font-medium">Háztartás összesített jövedelme</h1>
+      <table >
+        <thead className="bg-indigo-300">
           <tr>
             <th>Családtag</th>
             <th>Nettó bér</th>
