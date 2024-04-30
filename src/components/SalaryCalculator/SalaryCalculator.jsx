@@ -12,13 +12,13 @@ function calculateNetto(brutto) {
 
 /**
  *
- * @param {{brutto:number, name:string,netto:number, setterB:Function, setterN:Function, setterNet:Function}} param0
+ * @param {{brutto:number, name:string, netto:number, setterB:Function, setterN:Function, setterNet:Function}} param0
  * @returns
  */
 const SalaryCalculator = ({ brutto, name, netto, setterB, setterN, setterNet }) => {
   setterNet(calculateNetto(Number(brutto)));
-  const [allowances, setAllowances] = useState([false, false, false, false]);
-  
+  const [allowances, setAllowances] = useState([false, false, false, false, false]);
+
   return (
     <div className="bg-red-300">
       <TextInput title="Családtag neve" label="családtag nevét" value={name} setter={setterN}></TextInput>
