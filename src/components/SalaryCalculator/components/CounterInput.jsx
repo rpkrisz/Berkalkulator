@@ -14,7 +14,7 @@ export default function CounterInput({ peoples, setPeoples, type }) {
   }
 
   function handelRightClick() {
-    if (peoples[type] >= limit) return;
+    if (peoples[type] >= limit && type === "beneficiary") return;
     if (peoples["beneficiary"] === peoples["dependant"] && type === "beneficiary") return;
 
     setPeoples({ ...peoples, [type]: peoples[type] + 1 });
