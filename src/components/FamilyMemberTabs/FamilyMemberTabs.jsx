@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
+import { Tabs, TabList, TabPanels, Tab, TabPanel, Button } from "@chakra-ui/react";
 import SalaryCalculator from "../SalaryCalculator/SalaryCalculator";
 
 function calculateNetto(brutto, allowances, peoples) {
@@ -63,17 +63,22 @@ function FamilyMemberTabs({ members, setter }) {
     setter([...members]);
   }, [member]);
 
+  function handelClick() {
+    setter([...members, { name: "", brutto: 0, netto: 0 }]);
+  }
+
   return (
     <Tabs>
       <TabList>
         {members.map((tab, index) => (
           <Tab key={index}>{tab.name}</Tab>
         ))}
+        <Button onClick={handelClick}>+</Button>
       </TabList>
       <TabPanels>
         {members.map((tab, index) => (
           <TabPanel key={index}>
-            <SalaryCalculator member={member} setter={setMember} allowances={allowances} setAllowances={setAllowances} peoples={peoples} setPeoples={setPeoples} />
+            <SalaryCalculator member={member} setMember={setMember} allowances={allowances} setAllowances={setAllowances} peoples={peoples} setPeoples={setPeoples} />
           </TabPanel>
         ))}
       </TabPanels>
