@@ -1,7 +1,5 @@
-import { useState, useEffect } from "react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel, Button } from "@chakra-ui/react";
 import SalaryCalculator from "../SalaryCalculator/SalaryCalculator";
-
 
 function FamilyMemberTabs({ members, setMembers }) {
   function handelClick() {
@@ -19,7 +17,6 @@ function FamilyMemberTabs({ members, setMembers }) {
       <TabPanels>
         {members.map((tab, index) => (
           <TabPanel key={index}>
-            {/* <SalaryCalculator member={member} setMember={setMember} allowances={allowances} setAllowances={setAllowances} peoples={peoples} setPeoples={setPeoples} /> */}
             <SalaryCalculator members={members} setMembers={setMembers} index={index} />
           </TabPanel>
         ))}
