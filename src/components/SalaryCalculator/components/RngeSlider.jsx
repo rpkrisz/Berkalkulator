@@ -1,20 +1,15 @@
+import { Slider, SliderTrack, SliderFilledTrack, SliderThumb } from "@chakra-ui/react";
+
 function RngeSlider({ brutto, setter }) {
-  function handelChange(e) {
-    setter(Number(e.target.value));
-  }
+
   return (
     <div>
-      <label htmlFor="salaryrange" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
-      <input
-        onChange={handelChange}
-        id="salaryrange"
-        name="salaryrange"
-        value={brutto}
-        type="range"
-        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-        min={0}
-        max={3000000}
-      />
+      <Slider onChange={(val) => setter(Number(val))} focusThumbOnChange={false} value={brutto} min={0} max={3000000} step={10}>
+        <SliderTrack bg="red.100">
+          <SliderFilledTrack bg="azure" />
+        </SliderTrack>
+        <SliderThumb boxSize={5} />
+      </Slider>
     </div>
   );
 }

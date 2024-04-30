@@ -1,3 +1,5 @@
+import { Input } from "@chakra-ui/react";
+
 /**
  *
  * @param {{title: string, label:string,value:string setter:Function}} params
@@ -10,7 +12,7 @@ function TextInput({ title, label, value, setter }) {
   return (
     <div className="flex flex-col justify-start">
       <h1>{title}</h1>
-      <input onChange={handelChange} type="text" name="input" value={value ? value : ""} />
+      <Input onChange={handelChange} type="text" name="input" value={value ? value : ""} variant="filled" />
       <label htmlFor="">Add meg a {label}!</label>
     </div>
   );

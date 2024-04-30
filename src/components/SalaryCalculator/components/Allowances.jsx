@@ -2,7 +2,7 @@ import AllowanceToggel from "./AllowanceToggel.jsx";
 import Entitled from "./Entitled.jsx";
 import Dependants from "./Dependants.jsx";
 import ModalDateInput from "./ModalDateInput.jsx";
-import { useDisclosure } from "@chakra-ui/react";
+import { Button, useDisclosure } from "@chakra-ui/react";
 
 function Allowances({ allowances, setter, peoples, setPeoples }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -12,10 +12,10 @@ function Allowances({ allowances, setter, peoples, setPeoples }) {
       <h1>KEDVEZMÉNYEK</h1>
       <AllowanceToggel allowances={allowances} setter={setter} index={0} label="25 év"></AllowanceToggel>
       <AllowanceToggel allowances={allowances} setter={setter} index={1} label="Friss">
-        <button onClick={onOpen} href="#" className="ui right floated green button rounded-full bg-blue-700 p-1" id="newModal">
+        <Button onClick={onOpen} href="#" className="ui right floated green button rounded-full bg-blue-700 p-1" id="newModal">
           <i className="plus icon"></i>
           Dátum
-        </button>
+        </Button>
         <ModalDateInput
           open={isOpen}
           handelClose={() => {
