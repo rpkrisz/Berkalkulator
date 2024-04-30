@@ -1,10 +1,11 @@
 import { Slider, SliderTrack, SliderFilledTrack, SliderThumb } from "@chakra-ui/react";
 
-function RngeSlider({ brutto, setter }) {
+function RngeSlider({ member, setter }) {
+  const { name, brutto, netto } = member;
 
   return (
     <div>
-      <Slider onChange={(val) => setter(Number(val))} focusThumbOnChange={false} value={brutto} min={0} max={3000000} step={10}>
+      <Slider onChange={(val) => setter({ ...member, brutto: Number(val) })} focusThumbOnChange={false} value={brutto} min={0} max={3000000} step={10}>
         <SliderTrack bg="red.100">
           <SliderFilledTrack bg="azure" />
         </SliderTrack>

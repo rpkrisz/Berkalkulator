@@ -1,8 +1,10 @@
 import { Button } from "@chakra-ui/react";
 
-function ChangeButton({ brutto, setter, value }) {
+function ChangeButton({ member, setter, value }) {
+  const { name, brutto, netto } = member;
+
   function handelClick() {
-    setter(Number(brutto) + Math.round((Number(brutto) * Number(value)) / 100));
+    setter({ ...member, brutto: Number(brutto) + Math.round((Number(brutto) * Number(value)) / 100) });
   }
   return (
     <>

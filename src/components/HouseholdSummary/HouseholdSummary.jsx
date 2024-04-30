@@ -1,6 +1,8 @@
 import Formatted from "../Formatted";
 
-const HouseholdSummary = ({ netto, name }) => {
+const HouseholdSummary = ({ member }) => {
+  const { name, brutto, netto } = member;
+
   return (
     <div className="bg-yellow-300">
       <h1>Háztartás összesített jövedelme</h1>
