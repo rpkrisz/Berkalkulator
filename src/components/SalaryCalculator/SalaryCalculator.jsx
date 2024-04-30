@@ -5,8 +5,19 @@ import RngeSlider from "./components/RngeSlider";
 import { useState } from "react";
 
 function calculateNetto(brutto, allowances, setterNet) {
-  let netto = brutto;
-  netto = brutto - brutto * 0.15 - brutto * 0.185;
+  brutto = Number(brutto);
+  let newBrutto = brutto;
+  let szja = brutto * 0.15;
+  let tb = brutto * 0.185;
+  let tax = szja + tb;
+
+  if (allowances[0]) {
+    brutto - 499952 > 0 ? (newBrutto = brutto - 499952) : (newBrutto = 0);
+    szja = newBrutto * 0.15;
+    tax = szja + tb;
+  }
+
+  let netto = brutto - tax;
   setterNet(netto);
 }
 
