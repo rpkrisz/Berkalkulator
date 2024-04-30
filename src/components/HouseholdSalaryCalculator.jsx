@@ -8,7 +8,7 @@ const HouseholdSalaryCalculator = () => {
   return (
     <>
       <main className="flex flex-row justify-center w-full">
-        <FamilyMemberTabs members={members} setter={setMembers} />
+        <FamilyMemberTabs members={members} setMembers={setMembers} />
         <HouseholdSummary members={members} />
       </main>
     </>
