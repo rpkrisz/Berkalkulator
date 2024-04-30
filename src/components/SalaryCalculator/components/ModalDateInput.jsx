@@ -1,6 +1,8 @@
 import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Button } from "@chakra-ui/react";
 import { useState } from "react";
 
+/* eslint-disable react/prop-types */
+
 export default function ModalDateInput({ open, handelClose, allowances, setter }) {
   const [date, setDate] = useState();
 

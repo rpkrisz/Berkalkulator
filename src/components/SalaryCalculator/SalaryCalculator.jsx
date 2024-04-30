@@ -1,7 +1,7 @@
-import Buttons from "./components/BruttoWage/Buttons";
+import Buttons from "./components/Buttons";
 import TextInput from "./components/TextInput";
-import Allowances from "./components/Allowances/Allowances";
-import RngeSlider from "./components/BruttoWage/RngeSlider";
+import Allowances from "./components/Allowances";
+import RngeSlider from "./components/RngeSlider";
 import Formatted from "../Formatted";
 import { useState, useEffect } from "react";
 import { Button } from "@chakra-ui/react";
