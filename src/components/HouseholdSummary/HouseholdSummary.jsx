@@ -1,3 +1,5 @@
+import Formatted from "../Formatted";
+
 const HouseholdSummary = ({ netto, name }) => {
   return (
     <div className="bg-yellow-300">
@@ -12,11 +14,14 @@ const HouseholdSummary = ({ netto, name }) => {
         <tbody>
           <tr>
             <td>{name}</td>
-            <td>{netto} Ft</td>
+            <td>
+              <Formatted number={netto} />
+            </td>
           </tr>
           <tr>
             <td>Összesen</td>
-            <td>{netto} Ft</td>
+            <Formatted number={netto} />
+            <td> </td>
           </tr>
         </tbody>
       </table>
