@@ -1,8 +1,14 @@
 import Formatted from "../Formatted";
-
-const HouseholdSummary = ({ member }) => {
-  const { name, brutto, netto } = member;
-
+/**
+ *
+ * @param {{members:Array}} param
+ * @returns
+ */
+const HouseholdSummary = ({ members }) => {
+  let sum = 0;
+  members.forEach((member) => {
+    sum += member.netto;
+  });
   return (
     <div className="bg-yellow-300">
       <h1>Háztartás összesített jövedelme</h1>
@@ -14,16 +20,20 @@ const HouseholdSummary = ({ member }) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>{name}</td>
-            <td>
-              <Formatted number={netto} />
-            </td>
-          </tr>
+          {members.map((member, index) => {
+            return (
+              <tr key={index}>
+                <td>{member.name}</td>
+                <td>
+                  <Formatted number={member.netto} />
+                </td>
+              </tr>
+            );
+          })}
           <tr>
             <td>Összesen</td>
             <td>
-              <Formatted number={netto} />
+              <Formatted number={sum} />
             </td>
           </tr>
         </tbody>

@@ -49,25 +49,29 @@ function calculateNetto(brutto, allowances, peoples) {
 const HouseholdSalaryCalculator = () => {
   const [member, setMember] = useState({ name: "", brutto: 0, netto: 0 });
   const { name, brutto, netto } = member;
-
+  const [members, setMembers] = useState([{ name: "", brutto: 0, netto: 0 }]);
   const [allowances, setAllowances] = useState([false, false, false, false, false]);
   const [peoples, setPeoples] = useState({ dependant: 0, beneficiary: 0 });
 
   // update netto when change happens
   useEffect(() => {
     const newNetto = calculateNetto(Number(brutto), allowances, peoples);
-    setMember({ ...member, netto: newNetto });
-  }, [brutto, allowances, peoples, member]);
-
-
+    const newMember = { ...member, netto: newNetto };
+    setMember(newMember);
+  }, [brutto, allowances, peoples]);
+  useEffect(() => {
+    members[0] = member;
+    setMembers([...members]);
+  }, [member]);
   return (
     <>
+      {console.log(members)}
       <header>
         <FamilyMemberTabs />
       </header>
       <main className="flex flex-row justify-center w-full">
         <SalaryCalculator member={member} setter={setMember} allowances={allowances} setAllowances={setAllowances} peoples={peoples} setPeoples={setPeoples} />
-        <HouseholdSummary member={member} />
+        <HouseholdSummary members={members} />
       </main>
     </>
   );
