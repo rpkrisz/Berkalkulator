@@ -8,7 +8,11 @@ import { Input } from "@chakra-ui/react";
 function TextInput({ title, label, value, member, setter, name }) {
   function handelChange(e) {
     const val = e.target.value;
-    isNaN(val) ? setter({ ...member, name: e.target.value }) : setter({ ...member, brutto: Number(e.target.value) });
+    if (e.target.value === "") {
+      setter({ ...member, [name]: e.target.value });
+      return;
+    }
+    isNaN(val) ? setter({ ...member, [name]: e.target.value }) : setter({ ...member, [name]: Number(e.target.value) });
   }
   return (
     <div className="flex flex-col justify-start">
