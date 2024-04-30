@@ -10,17 +10,24 @@ function calculateNetto(brutto, allowances, setterNet) {
   let szja = brutto * 0.15;
   let tb = brutto * 0.185;
   let tax = szja + tb;
+  let bonus = 0;
 
   if (allowances[0]) {
     brutto - 499952 > 0 ? (newBrutto = brutto - 499952) : (newBrutto = 0);
     szja = newBrutto * 0.15;
     tax = szja + tb;
   }
+  if (allowances[1] && allowances[4]) {
+    bonus = 5000;
+  }
   if (allowances[2]) {
     tax - 77300 > 0 ? (tax = tax - 77300) : (tax = 0);
   }
+  if (allowances[3]) {
+    //
+  }
 
-  let netto = brutto - tax;
+  let netto = brutto - tax + bonus;
   setterNet(netto);
 }
 
