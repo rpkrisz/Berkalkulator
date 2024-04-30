@@ -3,9 +3,8 @@ import Entitled from "./Entitled.jsx";
 import Dependants from "./Dependants.jsx";
 import ModalDateInput from "./ModalDateInput.jsx";
 import { useDisclosure } from "@chakra-ui/react";
-import { useState } from "react";
 
-function Allowances({ allowances, setter }) {
+function Allowances({ allowances, setter, peoples, setPeoples }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -29,7 +28,7 @@ function Allowances({ allowances, setter }) {
       </AllowanceToggel>
       <AllowanceToggel allowances={allowances} setter={setter} index={2} label="Személyi"></AllowanceToggel>
       <AllowanceToggel allowances={allowances} setter={setter} index={3} label="Családi">
-        <Dependants />
+        <Dependants peoples={peoples} setPeoples={setPeoples} />
       </AllowanceToggel>
     </div>
   );

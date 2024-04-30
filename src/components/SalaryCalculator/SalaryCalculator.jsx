@@ -4,7 +4,7 @@ import Allowances from "./components/Allowances";
 import RngeSlider from "./components/RngeSlider";
 import { useState } from "react";
 
-function calculateNetto(brutto, allowances, setterNet) {
+function calculateNetto(brutto, allowances, peoples, setterNet) {
   brutto = Number(brutto);
   let newBrutto = brutto;
   let szja = brutto * 0.15;
@@ -38,14 +38,17 @@ function calculateNetto(brutto, allowances, setterNet) {
  */
 const SalaryCalculator = ({ brutto, name, netto, setterB, setterN, setterNet }) => {
   const [allowances, setAllowances] = useState([false, false, false, false, false]);
-  calculateNetto(Number(brutto), allowances, setterNet);
+  const [peoples, setPeoples] = useState({ dependant: 0, beneficiary: 0 });
+
+  calculateNetto(Number(brutto), allowances, peoples, setterNet);
+  
   return (
     <div className="bg-red-300">
       <TextInput title="Családtag neve" label="családtag nevét" value={name} setter={setterN}></TextInput>
       <TextInput title="Bruttó bér" label="bruttó bérét" value={brutto} setter={setterB}></TextInput>
       <RngeSlider brutto={brutto} setter={setterB}></RngeSlider>
       <Buttons brutto={brutto} setter={setterB}></Buttons>
-      <Allowances allowances={allowances} setter={setAllowances}></Allowances>
+      <Allowances allowances={allowances} setter={setAllowances} peoples={peoples} setPeoples={setPeoples}></Allowances>
       <p>Számított nettó bér:</p>
       <p>{netto ?? 0} Ft</p>
     </div>
