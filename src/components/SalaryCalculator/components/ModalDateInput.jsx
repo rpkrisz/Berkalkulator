@@ -1,4 +1,4 @@
-import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter } from "@chakra-ui/react";
+import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Button } from "@chakra-ui/react";
 import { useState } from "react";
 
 /* eslint-disable react/prop-types */
@@ -43,12 +43,10 @@ export default function ModalDateInput({ open, handelClose, allowances, setter }
             </div>
           </ModalBody>
           <ModalFooter>
-            <div className="actions">
-              <button type="submit" className="ui positive right labeled icon button">
-                Mentés
-                <i className="plus icon"></i>
-              </button>
-            </div>
+            <Button type="submit" className="ui positive right labeled icon button">
+              Mentés
+              <i className="plus icon"></i>
+            </Button>
           </ModalFooter>
         </ModalContent>
       </ModalOverlay>
