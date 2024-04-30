@@ -56,9 +56,9 @@ function calculateNetto(brutto, allowances, peoples) {
  */
 const SalaryCalculator = ({ members, setMembers, index }) => {
   const [member, setMember] = useState({ name: "", brutto: 0, netto: 0 });
-  const { name, brutto, netto } = member;
   const [allowances, setAllowances] = useState([false, false, false, false, false]);
   const [peoples, setPeoples] = useState({ dependant: 0, beneficiary: 0 });
+  const { name, brutto, netto } = member;
 
   function handelDelete() {
     if (members.length === 1) return;
