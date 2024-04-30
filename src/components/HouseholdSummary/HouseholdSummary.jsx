@@ -22,8 +22,9 @@ const HouseholdSummary = ({ member }) => {
           </tr>
           <tr>
             <td>Összesen</td>
-            <Formatted number={netto} />
-            <td> </td>
+            <td>
+              <Formatted number={netto} />
+            </td>
           </tr>
         </tbody>
       </table>
