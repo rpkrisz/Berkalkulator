@@ -24,7 +24,23 @@ function calculateNetto(brutto, allowances, peoples, setterNet) {
     tax - 77300 > 0 ? (tax = tax - 77300) : (tax = 0);
   }
   if (allowances[3]) {
-    //
+    let allowance = 0;
+    switch (peoples["beneficiary"]) {
+      case 1:
+        allowance = 10000 * peoples["dependant"];
+        break;
+      case 2:
+        allowance = 20000 * peoples["dependant"];
+        break;
+      case 3:
+        allowance = 33000 * peoples["dependant"];
+        break;
+
+      default:
+        break;
+    }
+
+    tax - allowance > 0 ? (tax = tax - allowance) : (tax = 0);
   }
 
   let netto = brutto - tax + bonus;
@@ -41,7 +57,7 @@ const SalaryCalculator = ({ brutto, name, netto, setterB, setterN, setterNet }) 
   const [peoples, setPeoples] = useState({ dependant: 0, beneficiary: 0 });
 
   calculateNetto(Number(brutto), allowances, peoples, setterNet);
-  
+
   return (
     <div className="bg-red-300">
       <TextInput title="Családtag neve" label="családtag nevét" value={name} setter={setterN}></TextInput>
