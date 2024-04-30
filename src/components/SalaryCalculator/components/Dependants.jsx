@@ -1,14 +1,11 @@
-export default function Dependants() {
+import CounterInput from "./CounterInput";
 
+export default function Dependants() {
   return (
-    <div>
-      <button>-</button>
-      <input type="number" defaultValue={3} />
-      <button>+</button>
+    <div className="flex align-middle">
+      <CounterInput></CounterInput>
       <p>Eltartott, ebből kedvezményezett:</p>
-      <button>-</button>
-      <input type="number" defaultValue={1} />
-      <button>+</button>
+      <CounterInput></CounterInput>
     </div>
   );
 }
