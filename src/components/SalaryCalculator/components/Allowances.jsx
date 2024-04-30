@@ -1,5 +1,6 @@
 import AllowanceToggel from "./AllowanceToggel.jsx";
 import Entitled from "./Entitled.jsx";
+import Dependants from "./Dependants.jsx";
 import ModalDateInput from "./ModalDateInput.jsx";
 import { useDisclosure } from "@chakra-ui/react";
 import { useState } from "react";
@@ -27,7 +28,9 @@ function Allowances({ allowances, setter }) {
         <Entitled allowances={allowances} />
       </AllowanceToggel>
       <AllowanceToggel allowances={allowances} setter={setter} index={2} label="Személyi"></AllowanceToggel>
-      <AllowanceToggel allowances={allowances} setter={setter} index={3} label="Családi"></AllowanceToggel>
+      <AllowanceToggel allowances={allowances} setter={setter} index={3} label="Családi">
+        <Dependants />
+      </AllowanceToggel>
     </div>
   );
 }
