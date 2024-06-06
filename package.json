@@ -2,7 +2,7 @@
   "name": "react-beadando-berkalkulator",
   "private": true,
   "version": "1.0.0",
-  "homepage": "https://rpkrisz.github.io/React_Beadando-Berkalkulator/",
+  "homepage": "https://rpkrisz.github.io/Berkalkulator/",
   "type": "module",
   "scripts": {
     "start": "react-scripts start",
