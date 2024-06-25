@@ -74,3 +74,14 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+#root {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  height: auto;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
