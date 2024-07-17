@@ -6,8 +6,8 @@ const HouseholdSalaryCalculator = () => {
 
   return (
     <>
-      <header className="bg-sky-200 w-full h-fit p-2">
-        <h1 className="text-2xl font-bold">Bérkalkulátor</h1>
+      <header className="bg-sky-200 w-full h-fit p-2 flex justify-center">
+        <img src="assets/horizontal-logo_outline.png" alt="Logo" className="" />
       </header>
       <main className="flex flex-row justify-center w-full h-[90dvh] p-6">
         <FamilyMemberTabs members={members} setMembers={setMembers} />
